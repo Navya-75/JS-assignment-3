@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,textarea{
+            border: 2px solid red;
+        }
+       span{
+            color: red;
+            font-size:20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+        <h2>Registration Form</h2><br>
+        <form name="form">
+        <label>Name:</label>
+        <input type="text" id="name" name="Name" onkeyup="validate()">
+        <span id="nameerror"></span><br><br>
+        <label>Email:</label>
+        <input type="email" name="Email" onkeyup="validate()">
+        <span id="emailerror"></span><br><br>
+        <label>Website:</label>
+        <input type="url" name="Website" onkeyup="validate()">
+        <span id="urlerror"></span><br><br>
+        <label>Message:</label>
+        <textarea name="MSG" onkeyup="validate()"></textarea>
+        <span id="msgerror"></span><br><br>
+        <input type="button" value="submit" onclick="validate()">
+        </form>
+        <script>
+            function validate() {
+    var name = document.forms["form"]["Name"].value;
+    var email = document.forms["form"]["Email"].value;
+    var website = document.forms["form"]["Website"].value;
+    var msg = document.forms["form"]["MSG"].value;
+
+    let valid = true;
+
+    if (name === "") {
+        document.getElementById("nameerror").innerHTML = "This field is required";
+        valid = false;
+    } else {
+        document.getElementById("nameerror").innerHTML = "";
+    }
+
+    if (email === "") {
+        document.getElementById("emailerror").innerHTML = "This field is required";
+        valid = false;
+    } else {
+        document.getElementById("emailerror").innerHTML = "";
+    }
+
+    if (website === "") {
+        document.getElementById("urlerror").innerHTML = "This field is required";
+        valid = false;
+    } else {
+        document.getElementById("urlerror").innerHTML = "";
+    }
+
+    if (msg === "") {
+        document.getElementById("msgerror").innerHTML = "This field is required";
+        valid = false;
+    } else {
+        document.getElementById("msgerror").innerHTML = "";
+    }
+
+    if (valid) {
+        alert("Form submitted successfully!");
+    }
+
+    return valid;
+}
+
+        </script>
+
+
+</body>
+</html>
